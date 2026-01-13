@@ -35,18 +35,18 @@ function deleteListElement(nodeId, tagName, elementId) {
 }
 
 // extra exercises
+function changeElementTextSimple(tagName, elementId, newText) {
+    const list = document.getElementsByTagName(tagName);
+    const element = list[elementId];
+    element.innerText = newText;
+}
+
 function changeElementTextPosterity(nodeId, tagName, elementId, newText) {
     const node = document.getElementById(nodeId);
     const list = document.getElementsByTagName(tagName);
     const element = list[elementId];
     element.innerText = newText;
     return node;
-}
-
-function changeElementTextSimple(tagName, elementId, newText) {
-    const list = document.getElementsByTagName(tagName);
-    const element = list[elementId];
-    element.innerText = newText;
 }
 
 function countListElementsSimple(tagName) {
@@ -58,6 +58,17 @@ function countListElementsPosterity(nodeId, tagName) {
     const node = document.getElementById(nodeId);
     const list = node.getElementsByTagName(tagName);
     return list.length;
+}
+
+// unfinished, can move one element
+function moveNodesIntoNewList(className, moveTo) {
+    const classes = document.getElementsByClassName(className);
+    const newParent = document.getElementById(moveTo);
+
+    for (let i = 0; i <= classes.length; i++) {
+        newParent.appendChild(classes[i]);
+    }
+    return newParent;
 }
 
 // Test functions
@@ -79,3 +90,5 @@ console.log(newText);
 const count = countListElementsSimple("li");
 console.log(count);
 
+const moveUnhealthyItems = moveNodesIntoNewList("unhealthy", "listUnhealthy");
+console.log(moveUnhealthyItems);
