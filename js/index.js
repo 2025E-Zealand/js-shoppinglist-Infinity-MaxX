@@ -73,7 +73,7 @@ const addToList = appendToList("list", newNode);
 //const removeMarshmallows = deleteListElement("list", "li", "0");
 //console.log(removeMarshmallows);
 
-const newText = changeElementTextSimple("list", "li", "0", "Sour candy")
+const newText = changeElementTextSimple("li", "0", "Sour candy")
 console.log(newText);
 
 const count = countListElementsSimple("li");
