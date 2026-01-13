@@ -25,13 +25,39 @@ function deleteListElement(nodeId, tagName, elementId) {
     // get the parent node from which the element belongs to
     const node = document.getElementById(nodeId);
     // get a list of all children within the parent with a specific tag name
-    const liElement = node.getElementsByTagName(tagName);
+    const list = node.getElementsByTagName(tagName);
     // select the child at the specific position
-    const element = liElement[elementId];
+    const element = list[elementId];
     // remove the child
     node.removeChild(element);
 
     return node;
+}
+
+// extra exercises
+function changeElementTextPosterity(nodeId, tagName, elementId, newText) {
+    const node = document.getElementById(nodeId);
+    const list = document.getElementsByTagName(tagName);
+    const element = list[elementId];
+    element.innerText = newText;
+    return node;
+}
+
+function changeElementTextSimple(tagName, elementId, newText) {
+    const list = document.getElementsByTagName(tagName);
+    const element = list[elementId];
+    element.innerText = newText;
+}
+
+function countListElementsSimple(tagName) {
+    const list = document.getElementsByTagName(tagName);
+    return list.length;
+}
+
+function countListElementsPosterity(nodeId, tagName) {
+    const node = document.getElementById(nodeId);
+    const list = node.getElementsByTagName(tagName);
+    return list.length;
 }
 
 // Test functions
@@ -46,3 +72,10 @@ const addToList = appendToList("list", newNode);
 
 //const removeMarshmallows = deleteListElement("list", "li", "0");
 //console.log(removeMarshmallows);
+
+const newText = changeElementTextSimple("list", "li", "0", "Sour candy")
+console.log(newText);
+
+const count = countListElementsSimple("li");
+console.log(count);
+
