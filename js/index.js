@@ -16,12 +16,18 @@ function appendToList(id, node) {
     return document.getElementById(id).appendChild(node);
 }
 
-
+function changeClass(element, value) {
+    element.setAttribute("class", value);
+    return element;
+}
 
 // Test functions
-const textElem = createNode("list", "healthy", "Pears");
-//console.log(textElem);
+const newNode = createNode("list", "healthy", "Pears");
+//console.log(newNode);
 
-const addToList = appendToList("list", textElem);
+const addToList = appendToList("list", newNode);
 //console.log(addToList);
+
+//const newClass = changeClass(newNode, "unhealthy");
+//console.log(newClass);
 
