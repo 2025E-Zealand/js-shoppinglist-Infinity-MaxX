@@ -60,14 +60,24 @@ function countListElementsPosterity(nodeId, tagName) {
     return list.length;
 }
 
-// unfinished, can move one element
 function moveNodesIntoNewList(className, moveTo) {
-    const classes = document.getElementsByClassName(className);
     const newParent = document.getElementById(moveTo);
-
-    for (let i = 0; i <= classes.length; i++) {
-        newParent.appendChild(classes[i]);
+    let classes = document.getElementsByClassName(className);
+    
+    // backward iteration; does not cause slowdown or timeout
+    for (let i = classes.length - 1; i >= 0; i--) { 
+        newParent.appendChild(classes[i]); 
     }
+    // incredibly slow, causes a timeout. correct result after resetting itself
+    // most intutive countersolution to the initial attempt below
+    //while (classes.length > 0) {
+    //    newParent.appendChild(classes[0])
+    //}
+
+    // can move one element. throws an error at the second
+    //for (let i = 0; i < classes.length; i++) {
+    //    newParent.appendChild(classes[i]);
+    //}
     return newParent;
 }
 
